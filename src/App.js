@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { GlobalHotKeys } from 'react-hotkeys';
+import { pop } from '.';
 
 function App() {
+  const keyMap = {
+    SPELL: 'c h a n g w o r k s',
+  };
+
+  const handlers = {
+    SPELL: (e) => {
+      pop(5000);
+    },
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
+      <h1>Type "changworks"</h1>
     </div>
   );
 }
